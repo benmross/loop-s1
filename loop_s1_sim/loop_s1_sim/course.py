@@ -197,7 +197,7 @@ class Course:
         ixx = mass * (width ** 2 + height ** 2) / 12
         iyy = mass * (length ** 2 + height ** 2) / 12
         izz = mass * (length ** 2 + width ** 2) / 12
-        ground = f'{self.size_x + 20} {self.size_y + 20}'
+        ground = f'{self.size_x + 6} {self.size_y + 6}'
         body = f'<box><size>{length} {width} {height}</size></box>'
         models = ''.join(o.sdf for o in self.obstacles)
         return f'''<?xml version="1.0"?>
@@ -319,7 +319,7 @@ _GUI = f'''
         <scene>scene</scene>
         <ambient_light>0.4 0.4 0.4</ambient_light>
         <background_color>0.75 0.82 0.9</background_color>
-        <camera_pose>0 -29 27 0 0.78 1.5708</camera_pose>
+        <camera_pose>0 -21 23 0 0.9 1.5708</camera_pose>
       </plugin>
 {''.join(_floating(n) for n in ("GzSceneManager", "InteractiveViewControl", "CameraTracking",
                                 "MarkerManager", "SelectEntities", "VisualizationCapabilities"))}
