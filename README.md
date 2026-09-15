@@ -4,9 +4,17 @@ UMD Loop Challenge Week, software challenge S1. A box-shaped vehicle in
 Gazebo Harmonic visits a sequence of random XY waypoints through an arena
 of walls, pillars, ramps and hills, with no teleop. ROS 2 Jazzy, Ubuntu 24.04.
 
+[![The vehicle visiting six random waypoints on its own](media/s1-demo.gif)](media/s1-demo.mp4)
+
+The GIF is a full run at about 5.6x speed. Click it for [the real-time
+recording](media/s1-demo.mp4). Discs are waypoints (red pending, yellow
+current, green reached) and the blue line is the current plan.
+
 ## Run it
 
 ```bash
+mkdir -p ~/loop_ws/src && cd ~/loop_ws/src
+git clone https://github.com/benmross/loop-s1.git
 cd ~/loop_ws
 colcon build --packages-select loop_s1_sim loop_s1_nav
 source install/setup.bash
