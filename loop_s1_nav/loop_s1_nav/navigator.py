@@ -14,6 +14,7 @@ import numpy as np
 import rclpy
 from geometry_msgs.msg import PoseStamped, Twist
 from nav_msgs.msg import OccupancyGrid, Odometry, Path
+from rclpy.executors import ExternalShutdownException
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, QoSProfile, qos_profile_sensor_data
 from sensor_msgs.msg import LaserScan
@@ -307,9 +308,10 @@ def main():
     node = Navigator()
     try:
         rclpy.spin(node)
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, ExternalShutdownException):
         pass
     finally:
-        node.cmd_pub.publish(Twist())
+        if rclpy.ok():
+            node.cmd_pub.publish(Twist())
         node.destroy_node()
         rclpy.try_shutdown()

@@ -119,3 +119,12 @@ current, green is reached. The current plan is a blue line. In RViz
 | `/map` | nav_msgs/OccupancyGrid | navigator |
 
 Every tunable is in `loop_s1_nav/config/nav.yaml`.
+
+## If something is left running
+
+A Gazebo server can outlive its launch if only the launch process is
+signalled rather than the whole terminal. Before relaunching:
+
+```bash
+pkill -f "gz sim"
+```
