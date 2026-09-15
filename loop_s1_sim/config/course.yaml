@@ -1,0 +1,41 @@
+# The S1 course. The Gazebo world is generated from this file at launch and
+# the planner reads the same file, so obstacles are edited here and nowhere
+# else. Units are metres and degrees; the arena is centred on the origin.
+
+arena:
+  size_x: 30.0
+  size_y: 30.0
+  wall_height: 1.0
+  wall_thickness: 0.3
+
+vehicle:
+  length: 0.6
+  width: 0.4
+  height: 0.3
+
+start: {x: -12.0, y: -12.0, yaw_deg: 45.0}
+
+obstacles:
+  # One wall from the west edge and one from the east edge further north, so
+  # crossing the arena means a switchback rather than a straight line.
+  - {name: wall_south, type: wall, x: -6.0, y: -5.0, yaw_deg: 0, length: 18.0}
+  - {name: wall_north, type: wall, x: 6.0, y: 4.0, yaw_deg: 0, length: 18.0}
+
+  # A pocket open to the north. A goal inside it, approached from the south,
+  # traps anything that only steers toward the goal.
+  - {name: pocket_west, type: wall, x: -11.0, y: 10.0, yaw_deg: 90, length: 5.0}
+  - {name: pocket_east, type: wall, x: -6.0, y: 10.0, yaw_deg: 90, length: 5.0}
+  - {name: pocket_south, type: wall, x: -8.5, y: 7.5, yaw_deg: 0, length: 5.3}
+
+  - {name: wall_diagonal, type: wall, x: 9.0, y: -10.0, yaw_deg: 40, length: 6.0}
+
+  - {name: pillar_a, type: box, x: -2.0, y: -11.0, size_x: 1.5, size_y: 1.5, height: 1.2}
+  - {name: pillar_b, type: box, x: 0.0, y: -1.0, yaw_deg: 30, size_x: 1.2, size_y: 1.2, height: 1.2}
+  - {name: pillar_c, type: box, x: 11.0, y: 9.5, size_x: 2.0, size_y: 1.0, height: 1.2}
+
+  # Ramps and hills are keep-out areas, not terrain: the vehicle is a box that
+  # plans in 2D, so it goes around them like anything else.
+  - {name: ramp_east, type: ramp, x: 3.0, y: -8.5, yaw_deg: 20, length: 4.0, width: 2.5, height: 0.8}
+  - {name: ramp_west, type: ramp, x: -9.0, y: -0.5, yaw_deg: -70, length: 3.5, width: 2.0, height: 0.6}
+  - {name: hill_big, type: hill, x: 2.0, y: 10.0, radius: 3.0, height: 1.2}
+  - {name: hill_small, type: hill, x: 11.0, y: -1.0, radius: 1.8, height: 0.7}

@@ -1,0 +1,32 @@
+# Both nodes build a costmap, so the grid settings are shared.
+/**:
+  ros__parameters:
+    use_sim_time: true
+    resolution: 0.1          # m per cell
+    inflation: 0.6           # m; the vehicle's corners are 0.36 m from its centre
+
+navigator:
+  ros__parameters:
+    control_rate: 20.0
+    max_linear_speed: 1.0    # m/s
+    max_angular_speed: 1.5   # rad/s
+    max_linear_accel: 1.0
+    max_angular_accel: 3.0
+    lookahead: 0.8           # m, pure pursuit
+    rotate_in_place_angle: 0.9   # rad off the plan before it stops and turns
+    goal_tolerance: 0.3
+    preferred_clearance: 1.2 # m; closer than this costs extra when planning
+    clearance_weight: 3.0
+    use_lidar: true
+    stop_distance: 0.45      # m of lidar range ahead that stops forward motion
+    stop_half_angle: 0.6     # rad either side of straight ahead
+    blocked_timeout: 3.0     # s stopped before backing off
+    off_path_distance: 1.0
+    lidar_hit_threshold: 3
+    lidar_map_range: 5.0
+
+waypoint_manager:
+  ros__parameters:
+    goal_tolerance: 0.35     # a little looser than the navigator's, so arrival always counts
+    min_spacing: 6.0         # m between waypoints
+    clearance: 0.8           # m beyond inflation from any obstacle

@@ -1,0 +1,109 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Help Height: 0
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Cell Size: 1
+      Plane Cell Count: 32
+      Color: 160; 160; 164
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz_default_plugins/Map
+      Name: Costmap
+      Enabled: true
+      Alpha: 0.7
+      Color Scheme: costmap
+      Draw Behind: false
+      Topic:
+        Value: /map
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Name: Plan
+      Enabled: true
+      Color: 25; 115; 255
+      Line Style: Billboards
+      Line Width: 0.06
+      Topic:
+        Value: /plan
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Name: Lidar
+      Enabled: true
+      Color Transformer: FlatColor
+      Color: 255; 60; 60
+      Size (m): 0.06
+      Style: Flat Squares
+      Topic:
+        Value: /scan
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Name: Waypoints
+      Enabled: true
+      Topic:
+        Value: /waypoint_markers
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Value: true
+    - Class: rviz_default_plugins/Odometry
+      Name: Odometry
+      Enabled: true
+      Keep: 1
+      Shape:
+        Value: Arrow
+        Color: 255; 200; 0
+        Shaft Length: 0.6
+        Shaft Radius: 0.08
+        Head Length: 0.25
+        Head Radius: 0.16
+      Topic:
+        Value: /odom
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 40; 40; 44
+    Fixed Frame: odom
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Name: Current View
+      Angle: 0
+      Scale: 26
+      X: 0
+      Y: 0
+      Target Frame: <Fixed Frame>
+      Value: TopDownOrtho (rviz_default_plugins)
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Width: 1200
+  Height: 950
